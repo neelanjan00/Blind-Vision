@@ -83,11 +83,26 @@
            background-color: white;
        }
     }
+
+    #textbox1, #textbox2, #textbox3{
+        animation: fadeInAnimation ease 3s;
+        animation-fill-mode: forwards;
+        animation-play-state: paused;
+    }
+
+    @keyframes fadeInAnimation {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 </style>
 <body>
     <div id="fullpage">
         <div class="section" style="background-image: url('../static/images/bg1.jpg'); background-size: cover; background-position: left;">
-            <div class="container-fluid">
+            <div class="container-fluid" id="textbox1">
                 <div class="row">
                     <div class="col-md-6 offset-md-6 col-12">
                         <h1 id="title1">VISION</h1>
@@ -169,7 +184,18 @@
             scrollHorizontally: true,
             verticallyCentered: true,
             responsiveWidth: 767,
-            anchors: ['section1', 'section2', 'section3', 'section4']
+            anchors: ['section1', 'section2', 'section3', 'section4'],
+
+            afterLoad: function(origin, destination, direction){
+                if(destination.index === 0)
+                    document.getElementById('textbox1').style.animationPlayState = 'running';
+                if(destination.index === 1)
+                    document.getElementById('textbox2').style.animationPlayState = 'running';
+                if(destination.index === 3) {
+                    document.getElementById('textbox3').style.animationPlayState = 'running';
+                    document.getElementById('textbox4').style.animationPlayState = 'running';
+                }
+            }
         });
 
         $(".custom-file-input").on("change", function() {
