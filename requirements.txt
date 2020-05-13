@@ -8,4 +8,4 @@ numpy==1.18.4
 Pillow==7.1.2
 Werkzeug==1.0.1
 wincertstore==0.2
-tensorflow==2.1.0
+Keras==2.3.1
