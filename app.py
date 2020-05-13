@@ -5,10 +5,10 @@ import pickle
 import numpy as np
 from PIL import Image
 from flask import Flask, request, redirect, render_template, jsonify
-from keras.preprocessing import image
-from keras.applications.inception_v3 import preprocess_input
-from keras.preprocessing.sequence import pad_sequences
-from keras.models import load_model
+from tensorflow.python.keras.preprocessing import image
+from tensorflow.python.keras.applications.inception_v3 import preprocess_input
+from tensorflow.python.keras.preprocessing.sequence import pad_sequences
+from tensorflow.python.keras.models import load_model
 
 with open("./model/wordtoix.pkl", "rb") as fp:
   wordtoix = pickle.load(fp)
