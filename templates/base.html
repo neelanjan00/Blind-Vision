@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISION: Blind AI Assistance</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/stylesheets/fullpage.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans+Condensed:wght@700&display=swap" rel="stylesheet">
+</head>
+<style>
+    *{
+        box-shadow: none !important;
+    }
+    h1{
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-weight: 700;
+    }
+
+    h4{
+        font-family: 'Lato', sans-serif;
+    }
+
+    h1#title1 {
+        font-size: 75px;
+        text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.7);
+    }
+
+    h4#subtitle1{
+        font-size: 30px;
+        text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.7);
+    }
+
+    h1#title2 {
+        font-size: 55px;
+        margin-bottom: 20px;
+    }
+
+    h4#subtitle2{
+        font-size: 24px;
+        text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.924);
+        text-align: justify;
+    }
+
+    .image-container {
+        width: 300px;
+        min-height: 100px;
+        border: 2px solid #dddddd; 
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #cccccc;
+    }
+
+    .image-preview__image {
+        display: none;
+        width: 100%;
+    }
+
+    #linkedin, #github{
+        background-color: rgb(221, 221, 221);
+    }
+
+    #linkedin:hover, #github:hover{
+        color: white;
+        background-color: black;
+    }
+
+    .interactiveDiv {
+        background-color: rgba(255, 255, 255, 0.452);
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    @media only screen and (max-width: 767px) {
+       .interactiveDiv {
+            background-color: rgba(255, 255, 255, 0);
+       }
+
+       #caption {
+           background-color: white;
+       }
+    }
+</style>
+<body>
+    <div id="fullpage">
+        <div class="section" style="background-image: url('../static/images/bg1.jpg'); background-size: cover; background-position: left;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 offset-md-6 col-12">
+                        <h1 id="title1">VISION</h1>
+                        <h4 id="subtitle1">BLIND AI ASSISTANCE</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" style="background-image: url('../static/images/bg2.jpg'); background-size: cover; background-position: right;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 offset-md-8 pr-md-5 col-12" id="textbox2">
+                        <h1 id="title2">ABSTRACT</h1>
+                        <h4 id="subtitle2">
+                            Vision is a deep learning AI algorithm which makes collective use of computer vision and natural 
+                            language processing to assist visually impaired people. Vision acts as an aid to the visually 
+                            impaired people by briefly, vocally describing to them about their immediate surroundings, by making use of a mobile app. 
+                            It is made using the InceptionV3 CNN model combined with an LSTM RNN model, enhanced with the GloVe 
+                            word embedding.
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" style="background-image: url('../static/images/bg3.jpg'); background-size: cover;">
+            <center>
+                <div class="row">
+                    <div class="col-md-5 col-12 {{'offset-md-3 pl-md-5' if not caption}}">
+                        <div class="ml-md-5 interactiveDiv">
+                            <div class="image-preview mb-3" id="imagePreview">
+                                <img alt="Image Preview" class="image-preview__image img-fluid" style="width: auto; max-height: 70vh;">
+                            </div>
+                            <form action="/" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="platform" value="website">
+                                <div class="custom-file col-12">
+                                    <input type="file" class="custom-file-input" name="input_image" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Upload jpg/jpeg/png Image</label>
+                                </div>
+                                <button class="btn btn-light mt-4" style="border: 1px solid black" type="submit">SUBMIT</button>
+                            </form>
+                        </div>
+                    </div>
+                {% if caption %}
+                    <div class="col-md-6 col-12 offset-md-1 ml-md-5">
+                        <div class="interactiveDiv ml-md-5">
+                            <img src="data:image/jpeg;base64,{{img}}" class="img-fluid" style="width: auto; max-height: 70vh;"/>
+                            <i>
+                                <p id="caption" class="pt-md-4">"{{caption}}"</p>
+                            </i>
+                        </div>
+                    </div>
+                {% endif %}
+                </div>
+            </center>
+        </div>
+        <div class="section" style="background-image: url('../static/images/bg4.jpg'); background-size: cover;">
+            <div class="container" id="lastSection">
+                <div class="row">
+                    <div class="col-md-6 col-12 mb-4 mb-md-0" id="textbox3">
+                        <h1>ABOUT</h1>
+                        <h4>This project is made by Neelanjan Manna, a fellow Machine Learning enthusiast currently enrolled in Bachelor of Technology course at KIIT University.</h4>
+                        <a href="https://linkedin.com/in/neelanjan00/" target="blank"><button class="btn" id="linkedin" style="border: 1px solid black;">My Linkedin</button></a>
+                        <a href="https://github.com/neelanjan00/" target="blank"><button class="btn ml-3" id="github" style="border: 1px solid black;">My Github</button></a>
+                        <h1 class="mt-5">References</h1>
+                        <h4>
+                            <a href="https://machinelearningmastery.com/develop-a-deep-learning-caption-generation-model-in-python/" style="color: black;">1. How to Develop a Deep Learning Photo Caption Generator from Scratch by Jason Brownlee</a><br>
+                            <a href="https://towardsdatascience.com/image-captioning-with-keras-teaching-computers-to-describe-pictures-c88a46a311b8" style="color: black;">2. Image Captioning with Keras by Harshall Lamba</a><br>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="../static/scripts/fullpage.min.js"></script>
+    <script>
+        var fullpage_api = new fullpage('#fullpage', {
+            autoScrolling: true,
+            scrollHorizontally: true,
+            verticallyCentered: true,
+            responsiveWidth: 767,
+            anchors: ['section1', 'section2', 'section3', 'section4']
+        });
+
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+
+        const inpFile = document.getElementById('customFile');
+        const previewContainer = document.getElementById('imagePreview');
+        const previewImage = previewContainer.querySelector('.image-preview__image');
+
+        inpFile.addEventListener('change', function() {
+            const file = this.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                previewImage.style.display = "block";
+
+                reader.addEventListener("load", function() {
+                    previewImage.setAttribute("src", this.result);
+                });
+
+                reader.readAsDataURL(file);
+            }
+        })
+    </script>
+    {% if caption %}
+    <script>
+        fullpage_api.silentMoveTo(3);
+        var msg = new SpeechSynthesisUtterance('{{caption}}');
+        window.speechSynthesis.speak(msg);
+    </script>
+    {% endif %}
+</body>
+</html>
